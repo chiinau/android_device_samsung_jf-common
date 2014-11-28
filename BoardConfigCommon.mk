@@ -139,33 +139,6 @@ TARGET_RELEASETOOLS_EXTENSIONS := device/samsung/jf-common/releasetools
 # RIL
 BOARD_RIL_CLASS := ../../../device/samsung/jf-common/ril
 
-# SELinux
-BOARD_SEPOLICY_DIRS += \
-    device/samsung/jf-common/sepolicy
-
-BOARD_SEPOLICY_UNION += \
-    file_contexts \
-    app.te \
-    bluetooth.te \
-    device.te \
-    domain.te \
-    drmserver.te \
-    file.te \
-    hci_init.te \
-    healthd.te \
-    init.te \
-    init_shell.te \
-    keystore.te \
-    kickstart.te \
-    mediaserver.te \
-    nfc.te \
-    rild.te \
-    surfaceflinger.te \
-    system.te \
-    ueventd.te \
-    wpa.te \
-    wpa_socket.te
-
 # Time services
 BOARD_USES_QC_TIME_SERVICES := true
 
