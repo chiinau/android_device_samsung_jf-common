@@ -41,6 +41,9 @@ BOARD_KERNEL_PAGESIZE := 2048
 TARGET_KERNEL_CONFIG := cyanogen_jf_defconfig
 TARGET_KERNEL_SOURCE := kernel/samsung/jf
 
+# linaro
+TARGET_KERNEL_CUSTOM_TOOLCHAIN := linaro-4.7-12.10/bin/arm-linux-gnueabihf-
+
 # Audio
 BOARD_HAVE_AUDIENCE_ES325_2MIC := true
 BOARD_HAVE_DOCK_USBAUDIO := true
