@@ -96,6 +96,9 @@ EXTENDED_FONT_FOOTPRINT := true
 # GPS
 TARGET_NO_RPC := true
 
+# Graphics
+TARGET_DISPLAY_INSECURE_MM_HEAP := true
+
 # Includes
 TARGET_SPECIFIC_HEADER_PATH += device/samsung/jf-common/include
 
