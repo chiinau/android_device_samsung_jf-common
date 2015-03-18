@@ -127,7 +127,7 @@ static char * camera_fixup_getparams(int id, const char * settings)
 
     // fix params here
     params.set(android::CameraParameters::KEY_SUPPORTED_ISO_MODES, iso_values[id]);
-    params.set(android::CameraParameters::KEY_PREFERRED_PREVIEW_SIZE_FOR_VIDEO, "1920x1080");
+    //params.set(android::CameraParameters::KEY_PREFERRED_PREVIEW_SIZE_FOR_VIDEO, "1920x1080");
 
 #ifdef EXPOSURE_HACK
     params.set(android::CameraParameters::KEY_EXPOSURE_COMPENSATION_STEP, "0.5");
@@ -164,8 +164,6 @@ char * camera_fixup_setparams(struct camera_device * device, const char * settin
     bool isVideo = false;
     if (recordingHint)
         isVideo = !strcmp(recordingHint, "true");
-    
-    bool isHDR = !strcmp(params.get(android::CameraParameters::KEY_SCENE_MODE), "hdr");
 
     // fix params here
     // No need to fix-up ISO_HJR, it is the same for userspace and the camera lib
@@ -186,9 +184,9 @@ char * camera_fixup_setparams(struct camera_device * device, const char * settin
     if (id != 1) {
         params.set(android::CameraParameters::KEY_CAMERA_MODE, isVideo ? "0" : "1");
 
-        if (!isVideo && !isHDR) {
+        if (!isVideo) {
             // Magic 1508 command needs to be sent for jf
-            camera_send_command(device, 1508, 0, 0);
+            //camera_send_command(device, 1508, 0, 0);
             params.set(android::CameraParameters::KEY_ZSL, "on");
         } else {
             params.set(android::CameraParameters::KEY_ZSL, "off");
