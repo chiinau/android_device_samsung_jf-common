@@ -93,9 +93,6 @@ EXTENDED_FONT_FOOTPRINT := true
 # GPS
 TARGET_NO_RPC := true
 
-# Graphics
-TARGET_DISPLAY_INSECURE_MM_HEAP := true
-
 # Includes
 TARGET_SPECIFIC_HEADER_PATH += device/samsung/jf-common/include
 
@@ -110,6 +107,7 @@ BOARD_NFC_HAL_SUFFIX := msm8960
 
 # Partitions
 TARGET_USERIMAGES_USE_EXT4 := true
+TARGET_USERIMAGES_USE_F2FS := true
 BOARD_BOOTIMAGE_PARTITION_SIZE := 0x00A00000
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 0x00A00000
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 1181114368
@@ -127,9 +125,6 @@ BOARD_HAS_NO_MISC_PARTITION := true
 BOARD_HAS_NO_SELECT_BUTTON := true
 BOARD_RECOVERY_SWIPE := true
 TARGET_RECOVERY_FSTAB := device/samsung/jf-common/rootdir/etc/fstab.qcom
-
-# Releasetools
-TARGET_RELEASETOOLS_EXTENSIONS := device/samsung/jf-common/releasetools
 
 # RIL
 BOARD_RIL_CLASS := ../../../device/samsung/jf-common/ril
