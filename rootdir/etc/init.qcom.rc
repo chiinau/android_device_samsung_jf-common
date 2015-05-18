@@ -245,10 +245,10 @@ on post-fs-data
     chmod 0664 /data/.ant.info
 
     # for WIFI Version
-    restorecon /data/.wifiver.info
     write /data/.wifiver.info 0
     chown system root /data/.wifiver.info
     chmod 0666 /data/.wifiver.info
+    restorecon /data/.wifiver.info
 
     # for WIFI Cert
     chmod 0664 /data/.bustxglom.info
@@ -675,13 +675,6 @@ service ppd /system/bin/mm-pp-daemon
     user system
     socket pps stream 0660 system system graphics
     group system graphics
-
-service hostapd /system/bin/hostapd -dddd /data/hostapd/hostapd.conf
-    class late_start
-    user root
-    group root
-    oneshot
-    disabled
 
 service ds_fmc_appd /system/bin/ds_fmc_appd -p "rmnet0" -D
     class late_start
