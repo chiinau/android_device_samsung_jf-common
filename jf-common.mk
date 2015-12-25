@@ -113,6 +113,10 @@ PRODUCT_PACKAGES += \
     libgenlock \
     memtrack.msm8960
 
+# Doze
+PRODUCT_PACKAGES += \
+    SamsungDoze
+
 # GPS
 PRODUCT_PACKAGES += \
     gps.msm8960
@@ -120,6 +124,11 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/gps/etc/gps.conf:/system/etc/gps.conf \
     $(LOCAL_PATH)/gps/etc/sap.conf:/system/etc/sap.conf
+
+# IPv6 tethering
+PRODUCT_PACKAGES += \
+    ebtables \
+    ethertypes
 
 # IR
 PRODUCT_PACKAGES += \
@@ -141,7 +150,6 @@ PRODUCT_PACKAGES += \
 
 # Media
 PRODUCT_COPY_FILES += \
-    frameworks/av/media/libstagefright/data/media_codecs_ffmpeg.xml:system/etc/media_codecs_ffmpeg.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:system/etc/media_codecs_google_audio.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_telephony.xml:system/etc/media_codecs_google_telephony.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:system/etc/media_codecs_google_video.xml
@@ -190,6 +198,7 @@ PRODUCT_PACKAGES += \
     init.crda.sh \
     init.led.sh \
     init.qcom.rc \
+    init.qcom.power.rc \
     init.qcom.usb.rc \
     init.target.rc \
     ueventd.qcom.rc
@@ -224,6 +233,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.audio.speaker.location=high \
     ro.qc.sdk.audio.fluencetype=fluence
 
+# charging mode
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.enable_boot_charger_mode=1
+
 # display
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.hwui.text_cache_width=2048 \
@@ -238,12 +251,14 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.data.ds_fmc_app.mode=0 \
     persist.data_netmgrd_nint=16 \
+    persist.data.qmi.adb_logmask=0 \
     persist.omh.enabled=1 \
     persist.radio.add_power_save=1 \
     persist.radio.fill_eons=1 \
     persist.radio.use_se_table_only=1 \
     ro.telephony.ril.config=newDriverCallU,newDialCode \
-    ro.ril.telephony.mqanelements=6
+    ro.ril.telephony.mqanelements=6 \
+    ro.telephony.mms_data_profile=5
 
 # gps
 PRODUCT_PROPERTY_OVERRIDES += \

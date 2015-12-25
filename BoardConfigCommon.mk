@@ -34,7 +34,7 @@ TARGET_CPU_VARIANT := krait
 TARGET_BOOTLOADER_BOARD_NAME := MSM8960
 
 # Kernel
-BOARD_KERNEL_CMDLINE := androidboot.hardware=qcom user_debug=31 zcache msm_rtb.filter=0x3F ehci-hcd.park=3 androidboot.bootdevice=msm_sdcc.1
+BOARD_KERNEL_CMDLINE := androidboot.hardware=qcom user_debug=31 zcache msm_rtb.filter=0x3F ehci-hcd.park=3
 BOARD_KERNEL_BASE := 0x80200000
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x02000000
 BOARD_KERNEL_PAGESIZE := 2048
@@ -76,12 +76,13 @@ USE_DEVICE_SPECIFIC_CAMERA := true
 BOARD_BATTERY_DEVICE_NAME := "battery"
 BOARD_CHARGING_CMDLINE_NAME := "androidboot.bootchg"
 BOARD_CHARGING_CMDLINE_VALUE := "true"
+BOARD_CHARGER_ENABLE_SUSPEND := true
+BOARD_CHARGER_SHOW_PERCENTAGE := true
 
 # CMHW
 BOARD_HARDWARE_CLASS += device/samsung/jf-common/cmhw
 
 # Display
-BOARD_EGL_CFG := device/samsung/jf-common/configs/egl.cfg
 BOARD_USES_LEGACY_MMAP := true
 NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
 TARGET_DISPLAY_USE_RETIRE_FENCE := true
@@ -138,7 +139,6 @@ BOARD_SEPOLICY_UNION += \
     device.te \
     file_contexts \
     file.te \
-    gamma_dev.te \
     genfs_contexts \
     healthd.te \
     hostapd.te \
