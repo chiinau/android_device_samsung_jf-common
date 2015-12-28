@@ -155,6 +155,7 @@ BOARD_SEPOLICY_UNION += \
     panel_dev.te \
     property_contexts \
     property.te \
+    recovery.te \
     rild.te \
     system_app.te \
     system_server.te \
